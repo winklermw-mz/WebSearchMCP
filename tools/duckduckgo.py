@@ -27,7 +27,7 @@ def get_content(query: str, top_n: int) -> dict:
         url = resp.get("href")
         pages[url] = extract_text(url)
 
-    log_info(f"Found {len(pages)} pages for query '{query}'")
+    log_info(f"Executed web search, found {len(pages)} pages for query '{query}'")
     return pages
 
 def web_search(query: str) -> str:
@@ -35,8 +35,9 @@ def web_search(query: str) -> str:
         pages = get_content(query, 1)
         text = []
 
-        for url, content in pages.items():
+        for _, content in pages.items():
             text.append(content)
+        
         return "\n\n".join(text)
     
     except Exception as e:
