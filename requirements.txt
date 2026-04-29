@@ -1,0 +1,6 @@
+fastmcp
+requests
+ddgs
+beautifulsoup4
+wikipedia
+colorama

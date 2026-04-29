@@ -1,0 +1,6 @@
+DEBUG = False
+
+SERVER_IP = "0.0.0.0"
+SERVER_PORT = 8010
+
+MY_LOCATION = "Mainz, Germany"
