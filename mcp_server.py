@@ -6,7 +6,7 @@ from tools.wiki import query_wikipedia
 from utils.config import SERVER_IP, SERVER_PORT, MY_LOCATION
 
 
-mcp = FastMCP("MyMCP")
+mcp = FastMCP("WebSearchMCP")
 
 @mcp.tool(description="To query unknown or recent data this tool can be used to search the internet")
 def search_web(query: str) -> str:

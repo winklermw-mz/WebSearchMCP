@@ -1,4 +1,4 @@
-# MCP Server
+# MCP Web Search Server
 
 This is a simple server application built using FastMCP, designed to execute web searches and Wikipedia queries.
 
