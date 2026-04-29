@@ -11,7 +11,7 @@ This is a simple server application built using FastMCP, designed to execute web
 
 ## Requirements
 
-- Python 3.x
+- Python 3.12+
 - Other dependencies as specified in `requirements.txt`
 
 ## Installation
