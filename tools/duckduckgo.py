@@ -5,6 +5,7 @@ from ddgs import DDGS
 from utils.logger import log_error, log_info
 
 
+# extracts the text content from the given URL
 def extract_text(url: str) -> str:
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
@@ -20,6 +21,7 @@ def extract_text(url: str) -> str:
     text = re.sub(r"\n\s*\n+", "\n\n", text)
     return text
 
+# get web top N web pages for the given query
 def get_content(query: str, top_n: int) -> dict:
     pages = {}
     response = DDGS().text(query=query, max_results=top_n, region="de-de")
@@ -30,6 +32,7 @@ def get_content(query: str, top_n: int) -> dict:
     log_info(f"Executed web search, found {len(pages)} pages for query '{query}'")
     return pages
 
+# search web pages matching the given query string and return the concatenated text
 def web_search(query: str) -> str:
     try:
         pages = get_content(query, 1)

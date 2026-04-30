@@ -8,6 +8,7 @@ from utils.config import SERVER_IP, SERVER_PORT, MY_LOCATION
 
 mcp = FastMCP("WebSearchMCP")
 
+# execute a web search for the given query string
 @mcp.tool(description="To query unknown or recent data this tool can be used to search the internet")
 def search_web(query: str) -> str:
     try:
@@ -15,17 +16,20 @@ def search_web(query: str) -> str:
     except Exception as e:
         return f"Something went wrong: {e}"
     
+# search wikipedia for the given topic
 @mcp.tool(description="Get more information about a specific topic from Wikipedia to answer the user query")
 def search_wikipedia(
     topic: Annotated[str, "Topic to be searched for in Wikipedia. Since only one topic can be selected, it should be as concise as possible. For example, 'London' if you are looking for sights in London."], 
 ) -> str:
     return query_wikipedia(topic, "de")
 
+# return the current date
 @mcp.tool(description="Returns the current date")
 def get_current_date() -> str:
     current_date = datetime.now().strftime("%A, %B %d, %Y")
     return f"Today's date is {current_date}"
 
+# return the current position of the user
 @mcp.tool(description="Returns the current location of the user")
 def get_current_location() -> str:
     return f"The user is located in {MY_LOCATION}"

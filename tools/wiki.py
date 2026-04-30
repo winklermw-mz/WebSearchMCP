@@ -3,6 +3,7 @@ import re
 from utils.logger import log_info, log_error
 
 
+# returns the top N pages that match the given query
 def get_wiki_pages(query: str, count: int=5, lang: str="de") -> list:
     if not query:
         return []
@@ -14,6 +15,7 @@ def get_wiki_pages(query: str, count: int=5, lang: str="de") -> list:
     except Exception as e:
         return [f"Error while searching the Wikipedia pages for topic '{query}' and language '{lang}': {e}"]
 
+# extracts the text content of the given page
 def get_content_for_wiki_page(title: str, lang: str="de") -> str:
     try:
         wikipedia.set_lang(lang)
@@ -25,6 +27,7 @@ def get_content_for_wiki_page(title: str, lang: str="de") -> str:
     except Exception as e:
         return f"Error while loading the Wikipedia page '{title}' for language '{lang}': {e}"
 
+# queries wikipedia in the given language and returns the content of the best match
 def query_wikipedia(topic: str, language: str) -> str:
     try:
         pages = get_wiki_pages(topic, 1, language)
