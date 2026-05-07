@@ -13,7 +13,7 @@ def get_wiki_pages(query: str, count: int=5, lang: str="de") -> list:
         log_info(f"Executed Wikipedia search, found {len(results)} pages for topic '{query}' and language '{lang}': {results}")
         return results
     except Exception as e:
-        return [f"Error while searching the Wikipedia pages for topic '{query}' and language '{lang}': {e}"]
+        raise Exception(f"Error while searching the Wikipedia pages for topic '{query}' and language '{lang}': {e}")
 
 # extracts the text content of the given page
 def get_content_for_wiki_page(title: str, lang: str="de") -> str:
